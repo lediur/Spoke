@@ -57,7 +57,6 @@ const MessageResponse: React.FC<MessageResponseProps> = (props) => {
         variables: { message, campaignContactId: contact.id as string }
       });
       const messages = data?.sendMessage?.messages;
-
       if (messages) {
         props.messagesChanged(messages);
         props.onChange?.("");
