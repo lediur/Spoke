@@ -368,6 +368,7 @@ const rootSchema = `
     bulkOptOut(organizationId: String!, csvFile: Upload, numbersList: String): Int!
     bulkOptIn(organizationId: String!, csvFile: Upload, numbersList: String): Int!
     exportOptOuts(organizationId: String!, campaignIds: [String!]): Boolean!
+    markForManualReply(campaignContactId: String!): Boolean!
   }
 
   schema {

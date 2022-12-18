@@ -4,7 +4,10 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { useSendMessageMutation } from "@spoke/spoke-codegen";
+import {
+  useMarkForManualReplyMutation,
+  useSendMessageMutation
+} from "@spoke/spoke-codegen";
 import React, { useState } from "react";
 import * as yup from "yup";
 
@@ -29,6 +32,7 @@ const MessageResponse: React.FC<MessageResponseProps> = (props) => {
   const [messageForm, setMessageForm] = useState<HTMLFormElement | null>(null);
 
   const [sendMessage] = useSendMessageMutation();
+  const [markForManualReply] = useMarkForManualReplyMutation();
 
   const createMessageToContact = (text: string) => {
     const { contact, texter } = props.conversation;
@@ -53,8 +57,12 @@ const MessageResponse: React.FC<MessageResponseProps> = (props) => {
     setIsSending(true);
 
     try {
+      const campaignContactId = contact.id as string;
       const { data } = await sendMessage({
-        variables: { message, campaignContactId: contact.id as string }
+        variables: { message, campaignContactId }
+      });
+      await markForManualReply({
+        variables: { campaignContactId }
       });
       const messages = data?.sendMessage?.messages;
       if (messages) {

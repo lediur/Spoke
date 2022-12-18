@@ -36,6 +36,7 @@ export const schema = `
     messageStatus: String!
     assignmentId: String
     updatedAt: Date!
+    isAutoReplyEligible: Boolean!
 
     contactTags: [Tag]
   }

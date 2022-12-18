@@ -3539,6 +3539,13 @@ const rootMutations = {
       });
 
       return true;
+    },
+    markForManualReply: async (_root, { campaignContactId }) => {
+      await r
+        .knex("campaign_contact")
+        .where({ id: campaignContactId })
+        .update({ is_auto_reply_eligible: false });
+      return true;
     }
   }
 };
