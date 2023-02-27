@@ -447,10 +447,10 @@ export class AssignmentTexterContact extends React.Component {
     this.setState({ dialogType: TexterDialogType.OptOut });
   };
 
-  handleApplyTags = (addedTags, removedTags, callback) => {
+  handleApplyTags = (addedContactTags, removedContactTags, callback) => {
     const pendingNewTags = this.props.contact.contactTags || [];
 
-    addedTags.forEach((addedTag) => {
+    addedContactTags.forEach((addedTag) => {
       const tagDoesNotExist = !pendingNewTags.find(
         (currentTag) => currentTag.id === addedTag.id
       );
@@ -460,7 +460,7 @@ export class AssignmentTexterContact extends React.Component {
       }
     });
 
-    removedTags.forEach((removedTag) => {
+    removedContactTags.forEach((removedTag) => {
       const idxOfExistingTag = pendingNewTags.findIndex(
         (currentTag) => currentTag.id === removedTag.id
       );
@@ -470,23 +470,27 @@ export class AssignmentTexterContact extends React.Component {
       }
     });
 
-    this.tagContact(addedTags, removedTags);
+    this.tagContact(addedContactTags, removedContactTags);
 
     if (callback) {
       this.setState(
-        { addedTags, removedTags, isTagEditorOpen: false },
+        {
+          addedTags: addedContactTags,
+          removedTags: removedContactTags,
+          isTagEditorOpen: false
+        },
         callback
       );
     } else {
       this.setState({
-        addedTags,
-        removedTags,
+        addedTags: addedContactTags,
+        removedTags: removedContactTags,
         isTagEditorOpen: false
       });
     }
 
-    if (!callback && addedTags.length > 0) {
-      const mostImportantTag = sortBy(addedTags, "id")[0];
+    if (!callback && addedContactTags.length > 0) {
+      const mostImportantTag = sortBy(addedContactTags, "id")[0];
       const tagMessageText = mostImportantTag.tag.onApplyScript;
       if (tagMessageText !== "") this.handleChangeScript(tagMessageText);
     }
