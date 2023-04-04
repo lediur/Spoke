@@ -1,7 +1,10 @@
 import nodemailer from "nodemailer";
+import React from "react";
+import ReactDOMServer from "react-dom/server";
 
 import { config } from "../config";
 import logger from "../logger";
+import Header from "./lib/templates/header";
 
 const sender = nodemailer.createTransport({
   host: config.EMAIL_HOST,
@@ -37,7 +40,13 @@ export const sendEmail = async (options: SendMailOptions) => {
   }
 
   if (html) {
-    params.html = html;
+    const htmlWithHeader = (
+      <>
+        <Header />
+        {html}
+      </>
+    );
+    params.html = ReactDOMServer.renderToStaticMarkup(htmlWithHeader);
   }
 
   if (replyTo) {
