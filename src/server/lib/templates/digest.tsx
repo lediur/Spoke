@@ -77,19 +77,16 @@ const Digest: React.FC<DigestProps> = ({
   const orgName = organization.name;
   return (
     <>
-      <div>
-        <p>You have outstanding text assignments from {orgName}</p>
-        {notifications.map((notification) => renderDigestRow(notification))}
-        <p>
-          You can start sending texts right away here:{" "}
-          <a href={textingUrl}>{textingUrl}</a>
-        </p>
-        <br />
-        <p>
-          To modify your notification settings, go{" "}
-          <a href={settingsUrl}>here</a>
-        </p>
-      </div>
+      <p>You have outstanding text assignments from {orgName}</p>
+      {notifications.map((notification) => renderDigestRow(notification))}
+      <p>
+        You can start sending texts right away here:{" "}
+        <a href={textingUrl}>{textingUrl}</a>
+      </p>
+      <br />
+      <p>
+        To modify your notification settings, go <a href={settingsUrl}>here</a>
+      </p>
       <Footer orgName={orgName} settingsUrl={settingsUrl} />
     </>
   );

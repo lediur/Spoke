@@ -23,17 +23,15 @@ const AssignmentCreated: React.FC<NotificationProps> = ({
   const orgName = organization.name;
   return (
     <>
-      <div>
-        <p>You just got a new texting assignment from {orgName}</p>
-        <p>
-          [{campaign.title}]: {assignmentCount} first messages to send
-        </p>
-        <br />
-        <p>
-          You can start sending texts right away here:{" "}
-          <a href={textingUrl}>{textingUrl}</a>
-        </p>
-      </div>
+      <p>You just got a new texting assignment from {orgName}</p>
+      <p>
+        [{campaign.title}]: {assignmentCount} first messages to send
+      </p>
+      <br />
+      <p>
+        You can start sending texts right away here:{" "}
+        <a href={textingUrl}>{textingUrl}</a>
+      </p>
       <Footer orgName={orgName} settingsUrl={settingsUrl} />
     </>
   );
@@ -49,17 +47,15 @@ const AssignmentUpdated: React.FC<NotificationProps> = ({
   const orgName = organization.name;
   return (
     <>
-      <div>
-        <p>Your texting assignment from {orgName} has been updated.</p>
-        <p>
-          [{campaign.title}]: {assignmentCount} first messages to send.{" "}
-        </p>
-        <br />
-        <p>
-          You can start sending texts right away here:{" "}
-          <a href={textingUrl}>{textingUrl}</a>
-        </p>
-      </div>
+      <p>Your texting assignment from {orgName} has been updated.</p>
+      <p>
+        [{campaign.title}]: {assignmentCount} first messages to send.{" "}
+      </p>
+      <br />
+      <p>
+        You can start sending texts right away here:{" "}
+        <a href={textingUrl}>{textingUrl}</a>
+      </p>
       <Footer orgName={orgName} settingsUrl={settingsUrl} />
     </>
   );
@@ -74,16 +70,14 @@ const AssignmentMessageReceived: React.FC<NotificationProps> = ({
   const orgName = organization.name;
   return (
     <>
-      <div>
-        <p>
-          Someone responded to your message from ${orgName} in ${campaign.title}
-        </p>
-        <br />
-        <p>
-          You can look at your pending texts here:{" "}
-          <a href={textingUrl}>{textingUrl}</a>
-        </p>
-      </div>
+      <p>
+        Someone responded to your message from ${orgName} in ${campaign.title}
+      </p>
+      <br />
+      <p>
+        You can look at your pending texts here:{" "}
+        <a href={textingUrl}>{textingUrl}</a>
+      </p>
       <Footer orgName={orgName} settingsUrl={settingsUrl} />
     </>
   );
