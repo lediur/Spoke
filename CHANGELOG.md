@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.2.0-rc.1](https://github.com/lediur/Spoke/compare/v6.2.0-rc.0...v6.2.0-rc.1) (2023-05-02)
+
+
+### Bug Fixes
+
+* **release-please:** "empty" .release-please-manifest.json ([56fd8a6](https://github.com/lediur/Spoke/commit/56fd8a65462b529cba727b8e9cd85ac64b72cfab))
+* **release-please:** incorrect tag format "spoke-vX.Y.Z" ([f46bc95](https://github.com/lediur/Spoke/commit/f46bc95454cf33b8dbcaef687f1ea1aebab3905c))
+* **release-please:** manually set release version to next semver ([8c48819](https://github.com/lediur/Spoke/commit/8c48819b9ab224fb616f962332c2e1417e396f17))
+* **release-please:** specify next version as 'rc' and set prerelease flag ([25885f8](https://github.com/lediur/Spoke/commit/25885f84349815e95c2f82913a13c877c66c92c6))
+* van configuration reading the wrong query ([#1589](https://github.com/lediur/Spoke/issues/1589)) ([fe5e6d7](https://github.com/lediur/Spoke/commit/fe5e6d785b3e20f86e01fa5d4734b9438528ddcc))
+
 ## [6.2.0-rc.0](https://github.com/politics-rewired/spoke/compare/v6.1.2...v6.2.0-rc.0) (2023-03-14)
 
 
